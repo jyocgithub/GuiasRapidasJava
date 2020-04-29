@@ -56,7 +56,7 @@ public class GUIA_03_BUCLES {
         }
 
         // =================================================================
-        // EJERICICIO EJEMPLO: Contar los numeros mutiplos de 3 del 1 al 100
+        // EJERCICIO EJEMPLO: Contar los numeros mutiplos de 3 del 1 al 100
         // =================================================================
         int contador = 0;
         for (int i = 1; i <= 100; i++) {
@@ -66,8 +66,9 @@ public class GUIA_03_BUCLES {
         }
         System.out.println(contador);
 
+
         // ========================================================
-        // EJERICICIO EJEMPLO: Sumar los numeros del 1 al 20
+        // EJERCICIO EJEMPLO: Sumar los numeros del 1 al 20
         // ========================================================
         int sumador = 0;
         for (int i = 1; i <= 320; i++) {
@@ -78,7 +79,7 @@ public class GUIA_03_BUCLES {
         System.out.println(sumador);
 
         // ========================================================
-        // EJERICICIO EJEMPLO: Escribir la tabla del 7
+        // EJERCICIO EJEMPLO: Escribir la tabla del 7
         // ========================================================
         for (int i = 1; i <= 10; i++) {
             System.out.println(" 7 por " + i + " es " + (i * 7));
@@ -87,6 +88,47 @@ public class GUIA_03_BUCLES {
 
 
 
+
+        // ========================================================
+        // EJERCICIO EJEMPLO: Crear un array con números al azar y
+        // sumar todos sus elementos posteriormente
+        // ========================================================
+        int[] lista = new int[4];
+        for (int i = 0; i <lista.length ; i++) {
+            lista[i]=  (int) (Math.random()*20);
+            System.out.println("el elemento añadido es "+lista[i]);
+        }
+        int suma = 0;
+        for (int i = 0; i <lista.length ; i++) {
+            suma = suma +  lista[i];
+        }
+        System.out.println("La suma es  "+suma);
+
+
+
+        // ===================================================================
+        // EJERCICIO EJEMPLO: Crear un array con números al azar,
+        // crear otro array y copiar los elementos del primero en el segundo
+        // ===================================================================
+
+        int[] listaorigen = new int[4];
+        int[] listaCopia = new int[4];
+
+        for (int i = 0; i < listaorigen.length; i++) {
+            listaorigen[i] = (int) (Math.random() * 20);
+        }
+        System.out.println("Elementos de lista;");
+        for (int i = 0; i < lista.length; i++) {
+            System.out.println(listaorigen[i]);
+        }
+
+        for (int i = 0; i < listaorigen.length; i++) {
+            listaCopia[i] = listaorigen[i];
+        }
+        System.out.println("Elementos de listaCopia;");
+        for (int i = 0; i < listaCopia.length; i++) {
+            System.out.println(listaCopia[i]);
+        }
 
 
     }
