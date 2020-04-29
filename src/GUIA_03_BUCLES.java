@@ -66,7 +66,6 @@ public class GUIA_03_BUCLES {
         }
         System.out.println(contador);
 
-
         // ========================================================
         // EJERCICIO EJEMPLO: Sumar los numeros del 1 al 20
         // ========================================================
@@ -85,10 +84,6 @@ public class GUIA_03_BUCLES {
             System.out.println(" 7 por " + i + " es " + (i * 7));
         }
 
-
-
-
-
         // ========================================================
         // EJERCICIO EJEMPLO: Crear un array con números al azar y
         // sumar todos sus elementos posteriormente
@@ -103,8 +98,6 @@ public class GUIA_03_BUCLES {
             suma = suma +  lista[i];
         }
         System.out.println("La suma es  "+suma);
-
-
 
         // ===================================================================
         // EJERCICIO EJEMPLO: Crear un array con números al azar,
@@ -129,7 +122,6 @@ public class GUIA_03_BUCLES {
         for (int i = 0; i < listaCopia.length; i++) {
             System.out.println(listaCopia[i]);
         }
-
 
     }
 }
