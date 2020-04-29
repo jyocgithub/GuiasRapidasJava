@@ -35,6 +35,16 @@ public class GUIA_04_ARRAYS {
 //            unArray[i]
 //        }
 
+
+
+        /*
+         * CREAR UN ARRAY AL TROCEAR UNA CADENA
+         */
+        String   cadena = "Scotty, mas potencia!";
+        String[] trozos = cadena.split(" ");
+
+
+
         /*
          * EJERCICIO: Mostrar todos los elementos de un array
          */
