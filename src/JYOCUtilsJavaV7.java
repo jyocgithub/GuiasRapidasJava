@@ -84,7 +84,6 @@ public class JYOCUtilsJavaV7 {
             try {
                 System.out.println(mensaje);
                 int numero = sc.nextInt();
-                sc.close();
                 return numero;
             } catch (NumberFormatException ex) {
                 System.out.println("Debe indicar un valor numerico entero");
@@ -106,7 +105,6 @@ public class JYOCUtilsJavaV7 {
             try {
                 System.out.println(mensaje);
                 double numero = sc.nextDouble();
-                sc.close();
                 return numero;
             } catch (NumberFormatException ex) {
                 System.out.println("Debe indicar un valor numerico entero");
@@ -125,7 +123,6 @@ public class JYOCUtilsJavaV7 {
         Scanner sc = new Scanner(System.in);
         System.out.println(mensaje);
         String res = sc.nextLine();
-        sc.close();
         return res;
     }
 
@@ -538,5 +535,11 @@ public class JYOCUtilsJavaV7 {
         return null; // si se llega aqui es por que hubo un error...
     }
 
+    // por si alguien quiere probar los metodos previos .......
+    public static void main(String[] args) throws IOException {
+        
+
+
+    }
 
 }
