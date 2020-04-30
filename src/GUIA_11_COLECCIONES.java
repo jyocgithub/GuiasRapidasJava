@@ -140,6 +140,19 @@ public class GUIA_11_COLECCIONES {
         }
 
 
+
+        // ==============================================================================
+        //   ENTRY.SET
+        // ==============================================================================
+        HashMap<String , Avioneta> mapaaviones = new HashMap<>();
+
+        for ( Map.Entry<String , Avioneta>  cosa : mapaaviones.entrySet() ){
+            System.out.println( " la clave es " + cosa.getKey());
+            System.out.println( " el valor es  " + cosa.getValue().toString());
+        }
+
+
+
     }
 
 }
