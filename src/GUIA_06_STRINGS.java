@@ -36,7 +36,6 @@ public class GUIA_06_STRINGS {
         String cadena = "Scotty, mas potencia!";
 
 
-
         /*
          * TAMAÑO DE UNA CADENA
          */
@@ -73,22 +72,32 @@ public class GUIA_06_STRINGS {
 
 
         /*
-         * CONVERTIR A MAYUSCULAS o MINUSCULAS
+         * CONSEGUIR UNA CADENA CONVERTIDA A MAYUSCULAS o MINUSCULAS
          */
         String cadenaMayus = cadena.toUpperCase();
         String cadenaMinus = cadena.toLowerCase();
+        // En ambos casos el string original (cadena) NO SE MODIFICA,
+        // siempre se devuelve una copia de cadena modificada.
 
 
         /*
          * SABER EN QUE POSICION ESTA UNA SUBCADENA
          */
         int pos = cadena.indexOf("tty");
+        // Indica la posicion en que la que se encuentra la cadena buscada
+        // Devuelve -1 si no se encuentra la cadena buscada.
 
 
         /*
-         * CREAR UN ARRAY AL TROCEAR UNA CADENA
+         * CREAR UN ARRAY AL TROCEAR UNA CADENA POR UN CARACTER INDICADO
          */
         String[] trozos = cadena.split(" ");
+        // cuidado que lo que evalua ereaalmente es una expresion regular, no se puede poner ahi cualquier cosa
+        // añadimos mas ejemplos para entender como se usa
+        String[] trozos1 = cadena.split(" ");     // trocea la cadena buscando espacios en blanco
+        String[] trozos2 = cadena.split(",");     // trocea la cadena buscando comas
+        String[] trozos3 = cadena.split("\\.");   // trocea la cadena buscando puntos
+        String[] trozos4 = cadena.split("\\? ");  // trocea la cadena buscando interrogantes
 
 
         /*
@@ -96,7 +105,10 @@ public class GUIA_06_STRINGS {
          */
         String origen = "una frase que mas que frase es frasecilla";
         String nuevacadena = origen.replace("frase", "cosa");   // nueva vale "una cosa que mas que cosa es cosacilla"
-
+        System.out.println(nuevacadena);
+        // El string original (cadena) NO SE MODIFICA,
+        // Se devuelve una copia de cadena modificada.
+        // Se reemplazan TODAS las apariciones de la cadena buscada en la original
 
         /*
         /*
