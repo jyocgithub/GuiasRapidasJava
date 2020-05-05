@@ -92,7 +92,7 @@ public class GUIA_06_STRINGS {
          * CREAR UN ARRAY AL TROCEAR UNA CADENA POR UN CARACTER INDICADO
          */
         String[] trozos = cadena.split(" ");
-        // cuidado que lo que evalua ereaalmente es una expresion regular, no se puede poner ahi cualquier cosa
+        // cuidado que lo que evalua realmente es una expresion regular, no se puede poner ahi cualquier cosa
         // añadimos mas ejemplos para entender como se usa
         String[] trozos1 = cadena.split(" ");     // trocea la cadena buscando espacios en blanco
         String[] trozos2 = cadena.split(",");     // trocea la cadena buscando comas
