@@ -167,9 +167,8 @@ public class JYOCUtilsJavaV7 {
         if (formato == null) {
             formato = "dd/MM/yyyy";
         }
-        String fechaEnString = null;
         SimpleDateFormat miFormato = new SimpleDateFormat(formato);
-        fechaEnString = miFormato.format(fechaEnDate);
+        String fechaEnString = miFormato.format(fechaEnDate);
         return fechaEnString;
     }
 
@@ -219,9 +218,10 @@ public class JYOCUtilsJavaV7 {
             formato = "dd/MM/yyyy";
         }
 
-        Calendar cal = Calendar.getInstance();
-        java.util.Date utilDate = cal.getTime();
-        return dateToString(utilDate, formato);
+        java.util.Date fechaEnDate = fechaEnCalendar.getTime();
+        SimpleDateFormat miFormato = new SimpleDateFormat(formato);
+        String fechaEnString = miFormato.format(fechaEnDate);
+        return fechaEnString;
     }
 
     /**
@@ -241,16 +241,21 @@ public class JYOCUtilsJavaV7 {
         if (formato == null) {
             formato = "dd/MM/yyyy";
         }
-        Date date = stringToDate(fechaEnString, formato);
+
+        SimpleDateFormat miFormato2 = new SimpleDateFormat(formato);
+        Date fechaenjava = null;
+        try {
+            fechaenjava = miFormato2.parse(fechaEnString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
+        calendar.setTime(fechaenjava);
         return calendar;
     }
 
 
-
-
-    public static String localdateToString(Calendar fechaEnlocaldate, String formato) {
+    public static String localdateToString(LocalDate fechaEnlocaldate, String formato) {
         if (fechaEnlocaldate == null) {
             return null;
         }
@@ -258,10 +263,9 @@ public class JYOCUtilsJavaV7 {
             formato = "dd/MM/yyyy";
         }
 
-        String str = "2016-03-04 11:30"; DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
-
-
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(formato);
+        String fechaenstring = fechaEnlocaldate.format(formatter);
+        return fechaenstring;
     }
 
 
@@ -274,10 +278,9 @@ public class JYOCUtilsJavaV7 {
         }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(formato);
         LocalDate localdate = LocalDate.parse(fechaEnString, formatter);
-
         return localdate;
-
     }
+
     /**
      * dateUTILtoSQL
      * <p>
@@ -624,6 +627,16 @@ public class JYOCUtilsJavaV7 {
 
     // por si alguien quiere probar los metodos previos .......
     public static void main(String[] args) throws IOException {
+
+
+        String ano = "1992";
+        Calendar c =stringToCalendar(ano,"yyyy");
+        System.out.println(c);
+        String s = calendarToString(c,"yyyy");
+        System.out.println(s);
+
+
+
 
 
     }
