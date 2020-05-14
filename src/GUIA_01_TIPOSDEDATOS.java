@@ -1,3 +1,7 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,7 +16,7 @@ public class GUIA_01_TIPOSDEDATOS {
         // =======================================
 
         /*
-         * CONVERTIR un INT en un STRING
+         * CONVERTIR un STRING en un INT
          */
         String ss = "53";
         int num1 = Integer.parseInt( ss );
@@ -21,7 +25,7 @@ public class GUIA_01_TIPOSDEDATOS {
         // existen Double.parseDouble(), Short.parseShort(), etc...
 
         /*
-         * CONVERTIR un STRING en un INT
+         * CONVERTIR un INT en un STRING
          */
 
         // este es el modo "didacticamente apropiado"
@@ -153,7 +157,6 @@ public class GUIA_01_TIPOSDEDATOS {
 
         // al acabar el programa, cerramos (usando close() ) la maquina de leer por teclado
         input.close();
-
 
 
 

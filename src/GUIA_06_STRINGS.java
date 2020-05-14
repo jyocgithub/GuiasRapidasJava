@@ -8,7 +8,7 @@ public class GUIA_06_STRINGS {
         // =======================================
 
         /*
-         * CONVERTIR un INT en un STRING
+         * CONVERTIR un STRING en un INT
          */
         String ss = "53";
         int num1 = Integer.parseInt(ss);
@@ -17,7 +17,7 @@ public class GUIA_06_STRINGS {
         // existen Double.parseDouble(), Short.parseShort(), etc...
 
         /*
-         * CONVERTIR un STRING en un INT
+         * CONVERTIR un INT en un STRING
          */
 
         // este es el modo "didacticamente apropiado"

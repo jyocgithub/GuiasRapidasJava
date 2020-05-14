@@ -4,6 +4,9 @@ import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -24,6 +27,31 @@ import java.util.regex.Pattern;
 #     - leerDouble  (String mensaje)                                                  #
 #     - leerString  (String mensaje)                                                  #
 #                                                                                     #
+# DATE (JAVA)                                                                         #
+# ###########                                                                         #
+#    - hoyEnDate                   ()                                                 #
+#    - dateToString                (Date fechaEnDate, String formato)                 #
+#    - stringToDate                (String fechaEnString)                             #
+#    - calendarToString            (Calendar fechaEnCalendar, String formato)         #
+#    - stringToCalenda             (String fechaEnString)                             #
+#    - dateUTILtoSQL               (java.util.Date fechaEnUtil                        #
+#    - dateSQLtoUTIL               (java.sql.Date fechaEnSql)                         #
+#    - hoy_enStringParaMySQL       ()                                                 #
+#    - dateUtil_enStringParaMySQL  (java.util.Date fecha)                             #
+#    - diferenciaEnDiasEntreDates  (Date fechaMayor, Date fechaMenor)                 #
+#    - diferenciaEnAnosEntreDates  (Date fechaMayor, Date fechaMenor)                 #
+#    - diferenciaEnMinutosEntreDates  (Date fechaMayor, Date fechaMenor)              #
+#    - milisegundosConFormato         (long milisegundos, String formato)             #
+#                                                                                     #
+# FICHEROS  (JAVA)                                                                    #
+# ################                                                                    #
+#    - hermanosQueSonCarpetas  (File origen)                                          #
+#                                                                                     #
+# CONVERSIONES BYTE[] OBJECT (JAVA)                                                   #
+# #################################                                                   #
+#    - byteArrayToObject                   (byte[] array)                             #
+#    - objetoToByteArray                   (Object objeto)                            #
+#                                                                                     #
 # CONVERSIONES BINARIO DECIMAL HEXADECIMAL                                            #
 # ########################################                                            #
 #     - deBinarioADecimal      (String numeroBinario)                                 #
@@ -35,29 +63,6 @@ import java.util.regex.Pattern;
 # #############                                                                       #
 #     - indiceDeEnesimaOcurrencia  (String origen, String busqueda, int ocurrencia    #
 #     - validarRegEx               ( String expresionregular, String valor)           #
-#                                                                                     #
-# DATE (JAVA)                                                                         #
-# ###########                                                                         #
-#    - hoyEnDate                   ()                                                 #
-#    - dateToString                (Date fechaEnDate, String formato)                 #
-#    - stringToDate                (String fechaEnString)                             #
-#    - dateUTILtoSQL               (java.util.Date fechaEnUtil                        #
-#    - dateSQLtoUTIL               (java.sql.Date fechaEnSql)                         #
-#    - hoy_enStringParaMySQL       ()                                                 #
-#    - dateUtil_enStringParaMySQL  (java.util.Date fecha)                             #
-#    - diferenciaEnDiasEntreDates  (Date fechaMayor, Date fechaMenor)                 #
-#    - diferenciaEnAnosEntreDates  (Date fechaMayor, Date fechaMenor)                 #
-#    - diferenciaEnMinutosEntreDates  (Date fechaMayor, Date fechaMenor)              #
-#    - milisegundosConFormato         (long milisegundos, String formato)             #
-#                                                                                     #                                 
-# FICHEROS  (JAVA)                                                                    #
-# ################                                                                    #
-#    - hermanosQueSonCarpetas  (File origen)                                          #
-#                                                                                     #   
-# CONVERSIONES BYTE[] OBJECT (JAVA)                                                   #
-# #################################                                                   #
-#    - byteArrayToObject                   (byte[] array)                             #
-#    - objetoToByteArray                   (Object objeto)                            #
 #                                                                                     #
 ###################################### (fin) ##########################################
 
@@ -128,71 +133,6 @@ public class JYOCUtilsJavaV7 {
 
     /**
      * ***************************************************************************
-     * ******* CONVERSIONES DE SISTEMA NUMERICO (JAVA) *************
-     * ***************************************************************************
-     */
-
-    public static int deBinarioADecimal(String numeroBinario) {
-        return Integer.parseInt(numeroBinario, 2);
-    }
-
-    public static int deHexadecimalADecimal(String numeroBinario) {
-        return Integer.parseInt(numeroBinario, 16);
-    }
-
-    public static String deDecimalABinario(int numerodecimal) {
-        return Integer.toBinaryString(numerodecimal);
-    }
-
-    public static String deDecimalAHexadecimal(int numerodecimal) {
-        return Integer.toHexString(numerodecimal);
-    }
-
-    /**
-     * ***************************************************************************
-     * ************ STRING (JAVA) **************
-     * ***************************************************************************
-     */
-
-
-    /**
-     * indiceDeEnesimaOcurrencia
-     * <p>
-     * Devuelve la posision de una cadena en otra, en su enésima aparición
-     *
-     * @param origen     Cadena donde buscar
-     * @param busqueda   Cadena que se busca
-     * @param ocurrencia numero de ocurrencia buscada
-     * @return la posision de la enésima aparición de la cadena buscada. o -1 si
-     * algun parametro es incorrecto
-     */
-    public static int indiceDeEnesimaOcurrencia(String origen, String busqueda, int ocurrencia) {
-        int pos = -1;
-        if (origen == null || busqueda == null || ocurrencia < 1) {
-            return -1;
-        }
-        do {
-            pos = origen.indexOf(busqueda, pos + 1);
-        } while (ocurrencia-- > 0 && pos != -1);
-
-        return pos;
-    }
-
-    /**
-     * validarRegEx
-     * Valida una xexpresion regular usando Pattern, pero sin compilar la expresion
-     *
-     * @param expresion expresion regular que comprueba el valor
-     * @param valor     valor que se  quiere comprobar
-     * @return true si el valor cumple la expresion regular dada
-     */
-    public static boolean validarRegEx(String expresionregular, String valor) {
-//		return valor.matches(expresionregular);  // otra forma 
-        return Pattern.matches(expresionregular, valor);
-    }
-
-    /**
-     * ***************************************************************************
      * ************ DATE (JAVA) **************
      * ***************************************************************************
      */
@@ -205,6 +145,8 @@ public class JYOCUtilsJavaV7 {
         Calendar cc = Calendar.getInstance();
         Date hoyEnDate = cc.getTime();
         return hoyEnDate;
+//        return Calendar.getInstance().getTime();
+
     }
 
     /**
@@ -258,6 +200,84 @@ public class JYOCUtilsJavaV7 {
         return fechaenjava;
     }
 
+    /**
+     * calendarToString
+     * <p>
+     * convertir de un Calendar a STRING, con un formato
+     *
+     * @param fechaEnCalendar Objeto Calendar de la fecha a cambiar
+     * @param formato         formato, como p.e. "dd/MM/yyyy" Si se idica null, se usa
+     *                        por defecto "dd/MM/yyyy"
+     * @return fecha en string en dicho formato, por ejemplo, "12/22/2016", o null
+     * si la fecha del parametro es null
+     */
+    public static String calendarToString(Calendar fechaEnCalendar, String formato) {
+        if (fechaEnCalendar == null) {
+            return null;
+        }
+        if (formato == null) {
+            formato = "dd/MM/yyyy";
+        }
+
+        Calendar cal = Calendar.getInstance();
+        java.util.Date utilDate = cal.getTime();
+        return dateToString(utilDate, formato);
+    }
+
+    /**
+     * stringToCalendar
+     * <p>
+     * Convierte un String en un Calendar
+     *
+     * @param fechaEnString Objeto String de la fecha a cambiar
+     * @param formato       Formato, como p.e. "dd/MM/yyyy" Si se idica null, se usa
+     *                      por defecto "dd/MM/yyyy"
+     * @return fecha en formato Calendar o null si la fecha del parametro es null
+     */
+    public static Calendar stringToCalendar(String fechaEnString, String formato) {
+        if (fechaEnString == null) {
+            return null;
+        }
+        if (formato == null) {
+            formato = "dd/MM/yyyy";
+        }
+        Date date = stringToDate(fechaEnString, formato);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar;
+    }
+
+
+
+
+    public static String localdateToString(Calendar fechaEnlocaldate, String formato) {
+        if (fechaEnlocaldate == null) {
+            return null;
+        }
+        if (formato == null) {
+            formato = "dd/MM/yyyy";
+        }
+
+        String str = "2016-03-04 11:30"; DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
+
+
+    }
+
+
+    public static LocalDate stringToLocaldate(String fechaEnString, String formato) {
+        if (fechaEnString == null) {
+            return null;
+        }
+        if (formato == null) {
+            formato = "dd/MM/yyyy";
+        }
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(formato);
+        LocalDate localdate = LocalDate.parse(fechaEnString, formatter);
+
+        return localdate;
+
+    }
     /**
      * dateUTILtoSQL
      * <p>
@@ -535,9 +555,75 @@ public class JYOCUtilsJavaV7 {
         return null; // si se llega aqui es por que hubo un error...
     }
 
+
+    /**
+     * ***************************************************************************
+     * ******* CONVERSIONES DE SISTEMA NUMERICO (JAVA) *************
+     * ***************************************************************************
+     */
+
+    public static int deBinarioADecimal(String numeroBinario) {
+        return Integer.parseInt(numeroBinario, 2);
+    }
+
+    public static int deHexadecimalADecimal(String numeroBinario) {
+        return Integer.parseInt(numeroBinario, 16);
+    }
+
+    public static String deDecimalABinario(int numerodecimal) {
+        return Integer.toBinaryString(numerodecimal);
+    }
+
+    public static String deDecimalAHexadecimal(int numerodecimal) {
+        return Integer.toHexString(numerodecimal);
+    }
+
+    /**
+     * ***************************************************************************
+     * ************ STRING (JAVA) **************
+     * ***************************************************************************
+     */
+
+
+    /**
+     * indiceDeEnesimaOcurrencia
+     * <p>
+     * Devuelve la posision de una cadena en otra, en su enésima aparición
+     *
+     * @param origen     Cadena donde buscar
+     * @param busqueda   Cadena que se busca
+     * @param ocurrencia numero de ocurrencia buscada
+     * @return la posision de la enésima aparición de la cadena buscada. o -1 si
+     * algun parametro es incorrecto
+     */
+    public static int indiceDeEnesimaOcurrencia(String origen, String busqueda, int ocurrencia) {
+        int pos = -1;
+        if (origen == null || busqueda == null || ocurrencia < 1) {
+            return -1;
+        }
+        do {
+            pos = origen.indexOf(busqueda, pos + 1);
+        } while (ocurrencia-- > 0 && pos != -1);
+
+        return pos;
+    }
+
+    /**
+     * validarRegEx
+     * Valida una xexpresion regular usando Pattern, pero sin compilar la expresion
+     *
+     * @param expresion expresion regular que comprueba el valor
+     * @param valor     valor que se  quiere comprobar
+     * @return true si el valor cumple la expresion regular dada
+     */
+    public static boolean validarRegEx(String expresionregular, String valor) {
+//		return valor.matches(expresionregular);  // otra forma
+        return Pattern.matches(expresionregular, valor);
+    }
+
+
     // por si alguien quiere probar los metodos previos .......
     public static void main(String[] args) throws IOException {
-
 
 
     }

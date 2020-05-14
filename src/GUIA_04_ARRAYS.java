@@ -80,8 +80,7 @@ public class GUIA_04_ARRAYS {
         }
 
         /*
-         * EJERCICIO: Ordenar  por burbuja  (version más simple)
-         *            Array de int
+         * Ordenar  por burbuja  (version más simple), cuando el array contiene int
          */
         int[] datos = {4, 1, 8, 36, 0, 33, 11, 43};
         for (int i = 0; i < datos.length - 1; i++) {
@@ -95,8 +94,8 @@ public class GUIA_04_ARRAYS {
         }
 
         /*
-         * EJERCICIO: Ordenar por burbuja  (version más simple)
-         *            Array de String (o de cualquier objeto)
+         * Ordenar por burbuja  (version más simple), cuando el array contiene String
+         * (o de cualquier objeto)
          */
         String[] palabras = {"pera", "uva", "higo", "fresa"};
         for (int i = 0; i < palabras.length - 1; i++) {
@@ -109,6 +108,7 @@ public class GUIA_04_ARRAYS {
             }
         }
 
+        
 
         // =======================================
         // MATRICES
