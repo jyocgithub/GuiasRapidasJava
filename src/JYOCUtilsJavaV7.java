@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Year;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -254,29 +255,41 @@ public class JYOCUtilsJavaV7 {
         return calendar;
     }
 
-
-    public static String localdateToString(LocalDate fechaEnlocaldate, String formato) {
+    /**
+     * localdateToString
+     *
+     * Convierte una fecha localdate en un string, siempre con el formato "dd/MM/yyyy"
+     * Si se usa otro formato, que sea siempre de fecha completa
+     * Con LocalDate no es optimo hablar solo de un mes o un año, pues existen Month y Year para ello
+     *
+     * @param fechaEnlocaldate fecha a traducir
+     * @return string con la fecha convertida
+     */
+    public static String localdateToString(LocalDate fechaEnlocaldate) {
         if (fechaEnlocaldate == null) {
             return null;
         }
-        if (formato == null) {
-            formato = "dd/MM/yyyy";
-        }
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(formato);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String fechaenstring = fechaEnlocaldate.format(formatter);
         return fechaenstring;
     }
 
-
-    public static LocalDate stringToLocaldate(String fechaEnString, String formato) {
+    /**
+     * stringToLocaldate
+     *
+     * Convierte un string, siempre con el formato "dd/MM/yyyy", a una fecha localdate
+     * Si se usa otro formato, que sea siempre de fecha completa
+     * Con LocalDate no es optimo hablar solo de un mes o un año, pues existen Month y Year para ello
+     *
+     *
+     * @param fechaEnString
+     * @return
+     */
+    public static LocalDate stringToLocaldate(String fechaEnString) {
         if (fechaEnString == null) {
             return null;
         }
-        if (formato == null) {
-            formato = "dd/MM/yyyy";
-        }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(formato);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate localdate = LocalDate.parse(fechaEnString, formatter);
         return localdate;
     }
@@ -628,16 +641,11 @@ public class JYOCUtilsJavaV7 {
     // por si alguien quiere probar los metodos previos .......
     public static void main(String[] args) throws IOException {
 
-
-        String ano = "1992";
-        Calendar c =stringToCalendar(ano,"yyyy");
+        String ano = "01/12/1992";
+        LocalDate c =stringToLocaldate(ano);
         System.out.println(c);
-        String s = calendarToString(c,"yyyy");
+        String s = localdateToString(c);
         System.out.println(s);
-
-
-
-
 
     }
 
