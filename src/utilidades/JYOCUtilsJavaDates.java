@@ -1,32 +1,18 @@
+package utilidades;
 
-import java.io.*;
-//import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Year;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
-import java.util.TimeZone;
-import java.util.regex.Pattern;
+import java.util.*;
+
 
 /*
 
 #######################################################################################
 ############################  GUIA DE CONTENIDOS ######################################
 #######################################################################################
-#                                                                                     #
-# SCANNER SIMPLIFICADO                                                                #
-# ####################                                                                #
-#     - leerInt     (String mensaje)                                                  #
-#     - leerDouble  (String mensaje)                                                  #
-#     - leerString  (String mensaje)                                                  #
 #                                                                                     #
 # DATE (JAVA)                                                                         #
 # ###########                                                                         #
@@ -43,100 +29,21 @@ import java.util.regex.Pattern;
 #    - diferenciaEnAnosEntreDates  (Date fechaMayor, Date fechaMenor)                 #
 #    - diferenciaEnMinutosEntreDates  (Date fechaMayor, Date fechaMenor)              #
 #    - milisegundosConFormato         (long milisegundos, String formato)             #
-#                                                                                     #
-# FICHEROS  (JAVA)                                                                    #
-# ################                                                                    #
-#    - hermanosQueSonCarpetas  (File origen)                                          #
-#                                                                                     #
-# CONVERSIONES BYTE[] OBJECT (JAVA)                                                   #
-# #################################                                                   #
-#    - byteArrayToObject                   (byte[] array)                             #
-#    - objetoToByteArray                   (Object objeto)                            #
-#                                                                                     #
-# CONVERSIONES BINARIO DECIMAL HEXADECIMAL                                            #
-# ########################################                                            #
-#     - deBinarioADecimal      (String numeroBinario)                                 #
-#     - deHexadecimalADecimal  (String numeroBinario)                                 #
-#     - deDecimalABinario      (int numerodecimal)                                    #
-#     - deDecimalAHexadecimal  (int numerodecimal)                                    #
-#                                                                                     #
-# STRING (JAVA)                                                                       #
-# #############                                                                       #
-#     - indiceDeEnesimaOcurrencia  (String origen, String busqueda, int ocurrencia    #
-#     - validarRegEx               ( String expresionregular, String valor)           #
+#    - fechaEntreDosFechas    (Date fbuscada, Date finicio, Date ffin)                #
+#    - fechaEntreDosFechas    (LocalDate fbuscada, LocalDate finicio, LocalDate ffin) #                                                                             #
 #                                                                                     #
 ###################################### (fin) ##########################################
 
+/**
+ * JYOCUtilsJavaScanner
+ * <p>
+ * Utilidades para despedirse de usar siempre Scanner con la consola de un IDE
+ *
+ * @author Iñaki Martin
+ * @version 2
  */
+public class JYOCUtilsJavaDates {
 
-public class JYOCUtilsJavaV7 {
-
-    /**
-     * ***************************************************************************
-     * ******* SCANNER SIMPLIFICADO *************
-     * ***************************************************************************
-     */
-
-    /**
-     * leerInt Lee con scanner un numero int, precio envio de un mensaje a usuario
-     *
-     * @param mensaje se muestra al usuario antes de que este escribe el valor
-     *                pedido
-     * @return el valor int que el usuario introduce por teclado
-     */
-    public static int leerInt(String mensaje) {
-        Scanner sc = new Scanner(System.in);
-        while (true) {
-            try {
-                System.out.println(mensaje);
-                int numero = sc.nextInt();
-                return numero;
-            } catch (NumberFormatException ex) {
-                System.out.println("Debe indicar un valor numerico entero");
-            }
-        }
-    }
-
-    /**
-     * leerDouble Lee con scanner un numero double, precio envio de un mensaje a
-     * usuario
-     *
-     * @param mensaje se muestra al usuario antes de que este escribe el valor
-     *                pedido
-     * @return el valor double que el usuario introduce por teclado
-     */
-    public static double leerDouble(String mensaje) {
-        Scanner sc = new Scanner(System.in);
-        while (true) {
-            try {
-                System.out.println(mensaje);
-                double numero = sc.nextDouble();
-                return numero;
-            } catch (NumberFormatException ex) {
-                System.out.println("Debe indicar un valor numerico entero");
-            }
-        }
-    }
-
-    /**
-     * leerString Lee con scanner un string, precio envio de un mensaje a usuario
-     *
-     * @param mensaje se muestra al usuario antes de que este escribe el valor
-     *                pedido
-     * @return el valor String que el usuario introduce por teclado
-     */
-    public static String leerString(String mensaje) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println(mensaje);
-        String res = sc.nextLine();
-        return res;
-    }
-
-    /**
-     * ***************************************************************************
-     * ************ DATE (JAVA) **************
-     * ***************************************************************************
-     */
     /**
      * hoyEnDate
      *
@@ -146,7 +53,7 @@ public class JYOCUtilsJavaV7 {
         Calendar cc = Calendar.getInstance();
         Date hoyEnDate = cc.getTime();
         return hoyEnDate;
-//        return Calendar.getInstance().getTime();
+        // return Calendar.getInstance().getTime();
 
     }
 
@@ -219,7 +126,7 @@ public class JYOCUtilsJavaV7 {
             formato = "dd/MM/yyyy";
         }
 
-        java.util.Date fechaEnDate = fechaEnCalendar.getTime();
+        Date fechaEnDate = fechaEnCalendar.getTime();
         SimpleDateFormat miFormato = new SimpleDateFormat(formato);
         String fechaEnString = miFormato.format(fechaEnDate);
         return fechaEnString;
@@ -257,7 +164,7 @@ public class JYOCUtilsJavaV7 {
 
     /**
      * localdateToString
-     *
+     * <p>
      * Convierte una fecha localdate en un string, siempre con el formato "dd/MM/yyyy"
      * Si se usa otro formato, que sea siempre de fecha completa
      * Con LocalDate no es optimo hablar solo de un mes o un año, pues existen Month y Year para ello
@@ -269,18 +176,15 @@ public class JYOCUtilsJavaV7 {
         if (fechaEnlocaldate == null) {
             return null;
         }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String fechaenstring = fechaEnlocaldate.format(formatter);
-        return fechaenstring;
+        return fechaEnlocaldate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     /**
      * stringToLocaldate
-     *
+     * <p>
      * Convierte un string, siempre con el formato "dd/MM/yyyy", a una fecha localdate
      * Si se usa otro formato, que sea siempre de fecha completa
      * Con LocalDate no es optimo hablar solo de un mes o un año, pues existen Month y Year para ello
-     *
      *
      * @param fechaEnString
      * @return
@@ -289,9 +193,7 @@ public class JYOCUtilsJavaV7 {
         if (fechaEnString == null) {
             return null;
         }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate localdate = LocalDate.parse(fechaEnString, formatter);
-        return localdate;
+        return LocalDate.parse(fechaEnString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     /**
@@ -303,7 +205,7 @@ public class JYOCUtilsJavaV7 {
      * @return fecha en Date, como Date de SQL, o null si la fecha del parametro es
      * null
      */
-    public static java.sql.Date dateUTILtoSQL(java.util.Date fechaEnUtil) {
+    public static java.sql.Date dateUTILtoSQL(Date fechaEnUtil) {
         if (fechaEnUtil == null) {
             return null;
         }
@@ -321,13 +223,13 @@ public class JYOCUtilsJavaV7 {
      * @return fecha en UTIL , COMO Date de UTIL, o null si la fecha del parametro
      * es null
      */
-    public static java.util.Date dateSQLtoUTIL(java.sql.Date fechaEnSql) {
+    public static Date dateSQLtoUTIL(java.sql.Date fechaEnSql) {
         if (fechaEnSql == null) {
             return null;
         }
-        java.util.Date fechaEnUtil = null;
+        Date fechaEnUtil = null;
         // opcion 1, la mas correcta
-        fechaEnUtil = new java.util.Date(fechaEnSql.getTime());
+        fechaEnUtil = new Date(fechaEnSql.getTime());
         // opcion 2, la mas simple, con casting implícito, que NO HACE FALTA HACER
         // TRANSFORMACION
         // fechaEnUtil = fechaEnSql;
@@ -358,7 +260,7 @@ public class JYOCUtilsJavaV7 {
      * parametro es null
      */
 
-    public static String dateUtil_enStringParaMySQL(java.util.Date fecha) {
+    public static String dateUtil_enStringParaMySQL(Date fecha) {
         if (fecha == null) {
             return null;
         }
@@ -474,179 +376,39 @@ public class JYOCUtilsJavaV7 {
     }
 
     /**
-     * ***************************************************************************
-     * ************ FICHEROS (JAVA) **************
-     * ***************************************************************************
+     * fechaEntreDosFechas
+     * Devuelve true o false si una fecha dada esta entre otras dos fechas limite
+     * Los parametros son objetos Date
+     * @param fbuscada  Fecha a comparar (formato Date)
+     * @param finicio   Fecha inicio del limite a buscar (formato Date)
+     * @param ffin      Fecha fin del limite a buscar (formato Date)
+     * @return  true si la fecha a comparar esta entre las otras dos fechas limites, false en caso contrario
      */
-
-    /**
-     * hermanosQueSonCarpetas
-     * <p>
-     * Devuelve una List de File, con los
-     * hermanos de la carpeta actual que tambien
-     * son carpetas
-     *
-     * @param origen Objeto File que representa el directorio actual
-     * @return List de File, con los hermanos de la carpeta actual que tambien son
-     * carpetas
-     */
-    public List<File> hermanosQueSonCarpetas(File origen) {
-        File padre = origen.getParentFile();
-        File[] hermandad = padre.listFiles();
-        List<File> hermanosValidos = new ArrayList<>();
-        for (File f : hermandad) {
-            if (f.isDirectory()) {
-                hermanosValidos.add(f);
-            }
+    public static boolean fechaEntreDosFechas(Date fbuscada, Date finicio, Date ffin) {
+        if (fbuscada.compareTo(finicio) >= 0 && fbuscada.compareTo(ffin) <= 0) {
+            return true;
         }
-        return hermanosValidos;
+        return false;
     }
 
 
     /**
-     * objetoToByteArray
-     * <p>
-     * Convierte un objeto en un array de bytes, por ejemplo, para envio por sockets o guarda en fichero
-     * Recordar que exige que la clase que genera el objeto sea SERIALIZABLE
-     *
-     * @param objeto objeto que deseamos convertir
-     * @return un array de bytes fruto del objeto convertido.
+     * fechaEntreDosFechas
+     * Devuelve true o false si una fecha dada esta entre otras dos fechas limite
+     * Los parametros son objetos LocalDate
+     * @param fbuscada  Fecha a comparar (formato LocalDate)
+     * @param finicio   Fecha inicio del limite a buscar (formato LocalDate)
+     * @param ffin      Fecha fin del limite a buscar (formato LocalDate)
+     * @return  true si la fecha a comparar esta entre las otras dos fechas limites, false en caso contrario
      */
-    public static byte[] objetoToByteArray(Object objeto) {
-        ByteArrayOutputStream baos;
-        ObjectOutputStream oos = null;
-        try {
-            // Escribimos el objeto en un ByteArrayOutpuStream, y de ahi lo convertimos en byte[]
-            baos = new ByteArrayOutputStream();
-            oos = new ObjectOutputStream(baos);
-            oos.writeObject(objeto);
-            oos.flush();
-            byte[] array = baos.toByteArray(); // convertimos el objeto escrito en el byte[]
-            return array;
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (oos != null) {
-                try {
-                    oos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
+    public static boolean fechaEntreDosFechas(LocalDate fbuscada, LocalDate finicio, LocalDate ffin) {
+        if (fbuscada.compareTo(finicio) >= 0 && fbuscada.compareTo(ffin) <= 0) {
+            return true;
         }
-        return null; // si se llega aqui es por que hubo un error...
-    }
-
-    /**
-     * byteArrayToObject
-     * <p>
-     * Convierte un array de bytes en un objeto, por ejemplo, para envio por sockets o guarda en fichero
-     * Recordar que exige que la clase que se genera a partit del objeto sea SERIALIZABLE
-     *
-     * @param array array de bytes a convertir
-     * @return un objeto Object convertido desde el parametro. Normalmente necesitará un casting al tipo real del objeto
-     */
-    public static Object byteArrayToObject(byte[] array) {
-        ByteArrayInputStream byteStream;
-        ObjectInputStream ois = null;
-        try {
-            // Leemos el byte[] de un ByteArrayInpuStream, y de ahi lo convertimos en Object
-            byteStream = new ByteArrayInputStream(array);
-            ois = new ObjectInputStream(byteStream);
-            Object objetoLeido = ois.readObject();
-            return objetoLeido;
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (ois != null) {
-                try {
-                    ois.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-        }
-        return null; // si se llega aqui es por que hubo un error...
+        return false;
     }
 
 
-    /**
-     * ***************************************************************************
-     * ******* CONVERSIONES DE SISTEMA NUMERICO (JAVA) *************
-     * ***************************************************************************
-     */
 
-    public static int deBinarioADecimal(String numeroBinario) {
-        return Integer.parseInt(numeroBinario, 2);
-    }
-
-    public static int deHexadecimalADecimal(String numeroBinario) {
-        return Integer.parseInt(numeroBinario, 16);
-    }
-
-    public static String deDecimalABinario(int numerodecimal) {
-        return Integer.toBinaryString(numerodecimal);
-    }
-
-    public static String deDecimalAHexadecimal(int numerodecimal) {
-        return Integer.toHexString(numerodecimal);
-    }
-
-    /**
-     * ***************************************************************************
-     * ************ STRING (JAVA) **************
-     * ***************************************************************************
-     */
-
-
-    /**
-     * indiceDeEnesimaOcurrencia
-     * <p>
-     * Devuelve la posision de una cadena en otra, en su enésima aparición
-     *
-     * @param origen     Cadena donde buscar
-     * @param busqueda   Cadena que se busca
-     * @param ocurrencia numero de ocurrencia buscada
-     * @return la posision de la enésima aparición de la cadena buscada. o -1 si
-     * algun parametro es incorrecto
-     */
-    public static int indiceDeEnesimaOcurrencia(String origen, String busqueda, int ocurrencia) {
-        int pos = -1;
-        if (origen == null || busqueda == null || ocurrencia < 1) {
-            return -1;
-        }
-        do {
-            pos = origen.indexOf(busqueda, pos + 1);
-        } while (ocurrencia-- > 0 && pos != -1);
-
-        return pos;
-    }
-
-    /**
-     * validarRegEx
-     * Valida una xexpresion regular usando Pattern, pero sin compilar la expresion
-     *
-     * @param expresion expresion regular que comprueba el valor
-     * @param valor     valor que se  quiere comprobar
-     * @return true si el valor cumple la expresion regular dada
-     */
-    public static boolean validarRegEx(String expresionregular, String valor) {
-//		return valor.matches(expresionregular);  // otra forma
-        return Pattern.matches(expresionregular, valor);
-    }
-
-
-    // por si alguien quiere probar los metodos previos .......
-    public static void main(String[] args) throws IOException {
-
-        String ano = "01/12/1992";
-        LocalDate c =stringToLocaldate(ano);
-        System.out.println(c);
-        String s = localdateToString(c);
-        System.out.println(s);
-
-    }
 
 }
