@@ -1,4 +1,4 @@
-import sun.reflect.generics.tree.VoidDescriptor;
+
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,11 +12,11 @@ public class GUIA_16_BASES_DE_DATOS {
 }
 
 class BBDDGestor {
-    String conexionDB = "jdbc:mysql://localhost:3306/";
-    String nombreBD = "tarea11";
-    String usuarioDB = "root";
-    String passwordDB = "";
-    String opcionesBD = "";
+    String conexionDB = "jdbc:mysql://localhost:3306/";  // esto es para usar MySql
+    String nombreBD = "tarea11";  // aqui viene el nombre de la base de datos
+    String usuarioDB = "root";  // usuariode bbdd
+    String passwordDB = "";   // pwd de la bbdd
+    String opcionesBD = "";  // opcional
     Connection miConexion;
 
     /**
@@ -45,7 +45,8 @@ class BBDDGestor {
 
     /**
      * insertarPelicula
-     * @param miPelicula      Pelicula que se quiere dar de alta en la bbdd
+     *
+     * @param miPelicula Pelicula que se quiere dar de alta en la bbdd
      */
     public void insertarPelicula(Pelicula miPelicula) {
         conectar();
@@ -72,7 +73,7 @@ class BBDDGestor {
     /**
      * consultarPeliculas
      *
-     * @return  un arraylist con las peliculas existentes
+     * @return un arraylist con las peliculas existentes
      */
     public ArrayList<Pelicula> consultarPeliculas() {
         conectar();
@@ -89,7 +90,7 @@ class BBDDGestor {
                 int cod = registros.getInt("cod_peli");
                 String titulo = registros.getString("titulo");
                 // no es necesario convertir de java.sql.Date a java.util.Date
-                Date fechaestreno= registros.getDate("fechaestreno");
+                Date fechaestreno = registros.getDate("fechaestreno");
 
                 Pelicula nuevaPelicula = new Pelicula(cod, titulo, fechaestreno);
 
@@ -107,7 +108,6 @@ class BBDDGestor {
     }
 
     /**
-     *
      * @param codigobuscado
      * @return
      */
@@ -127,7 +127,7 @@ class BBDDGestor {
                 int cod = registros.getInt("cod_peli");
                 String titulo = registros.getString("titulo");
                 // no es necesario convertir de java.sql.Date a java.util.Date
-                Date fechaestreno= registros.getDate("fechaestreno");
+                Date fechaestreno = registros.getDate("fechaestreno");
 
                 Pelicula nuevaPelicula = new Pelicula(cod, titulo, fechaestreno);
 
@@ -145,7 +145,6 @@ class BBDDGestor {
     }
 
     /**
-     *
      * @param codigobuscado
      * @return
      */
@@ -159,10 +158,10 @@ class BBDDGestor {
             PreparedStatement instruccion = miConexion.prepareStatement(sql);
             instruccion.setInt(1, codigobuscado);
 
-            int f =  instruccion.executeUpdate();
-            if(f==1){
+            int f = instruccion.executeUpdate();
+            if (f == 1) {
 
-            return true;
+                return true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -193,7 +192,8 @@ class BBDDGestor {
 
 
     /**
-     *    public void modificarUnaPelicula(Pelicula miPelicula) {
+     * public void modificarUnaPelicula(Pelicula miPelicula) {
+     *
      * @param miPelicula
      */
     public void modificarUnaPelicula(Pelicula miPelicula) {
@@ -219,7 +219,6 @@ class BBDDGestor {
 
 
     /**
-     *
      * @return
      */
     public int getMaxIdPelicula() {
@@ -232,7 +231,6 @@ class BBDDGestor {
             return 0;
         }
     }
-
 
 
     public static java.sql.Date dateUTILtoSQL(java.util.Date fechaEnUtil) {

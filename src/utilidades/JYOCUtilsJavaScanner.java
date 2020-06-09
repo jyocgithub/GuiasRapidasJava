@@ -3,7 +3,6 @@ package utilidades;
 import java.util.*;
 
 /*
-
 #######################################################################################
 ############################  GUIA DE CONTENIDOS ######################################
 #######################################################################################
@@ -15,7 +14,6 @@ import java.util.*;
 #     - leerString  (String mensaje)                                                  #
 #                                                                                     #
 ###################################### (fin) ##########################################
-
  */
 
 /**
@@ -64,7 +62,7 @@ public class JYOCUtilsJavaScanner {
                 double numero = sc.nextDouble();
                 return numero;
             } catch (NumberFormatException ex) {
-                System.out.println("Debe indicar un valor numerico entero");
+                System.out.println("Debe indicar un valor numerico double");
             }
         }
     }

@@ -72,7 +72,7 @@ public class JYOCUtilsJavaDates {
         if (fechaEnDate == null) {
             return null;
         }
-        if (formato == null) {
+        if (formato ==  null) {
             formato = "dd/MM/yyyy";
         }
         SimpleDateFormat miFormato = new SimpleDateFormat(formato);
@@ -186,8 +186,8 @@ public class JYOCUtilsJavaDates {
      * Si se usa otro formato, que sea siempre de fecha completa
      * Con LocalDate no es optimo hablar solo de un mes o un año, pues existen Month y Year para ello
      *
-     * @param fechaEnString
-     * @return
+     * @param fechaEnString fecha a transformar
+     * @return fecha transformada en localdate
      */
     public static LocalDate stringToLocaldate(String fechaEnString) {
         if (fechaEnString == null) {
@@ -230,8 +230,7 @@ public class JYOCUtilsJavaDates {
         Date fechaEnUtil = null;
         // opcion 1, la mas correcta
         fechaEnUtil = new Date(fechaEnSql.getTime());
-        // opcion 2, la mas simple, con casting implícito, que NO HACE FALTA HACER
-        // TRANSFORMACION
+        // opcion 2, la mas simple, con casting implícito, que NO HACE FALTA HACER TRANSFORMACION
         // fechaEnUtil = fechaEnSql;
         return fechaEnUtil;
     }
@@ -379,10 +378,11 @@ public class JYOCUtilsJavaDates {
      * fechaEntreDosFechas
      * Devuelve true o false si una fecha dada esta entre otras dos fechas limite
      * Los parametros son objetos Date
-     * @param fbuscada  Fecha a comparar (formato Date)
-     * @param finicio   Fecha inicio del limite a buscar (formato Date)
-     * @param ffin      Fecha fin del limite a buscar (formato Date)
-     * @return  true si la fecha a comparar esta entre las otras dos fechas limites, false en caso contrario
+     *
+     * @param fbuscada Fecha a comparar (formato Date)
+     * @param finicio  Fecha inicio del limite a buscar (formato Date)
+     * @param ffin     Fecha fin del limite a buscar (formato Date)
+     * @return true si la fecha a comparar esta entre las otras dos fechas limites, false en caso contrario
      */
     public static boolean fechaEntreDosFechas(Date fbuscada, Date finicio, Date ffin) {
         if (fbuscada.compareTo(finicio) >= 0 && fbuscada.compareTo(ffin) <= 0) {
@@ -396,10 +396,11 @@ public class JYOCUtilsJavaDates {
      * fechaEntreDosFechas
      * Devuelve true o false si una fecha dada esta entre otras dos fechas limite
      * Los parametros son objetos LocalDate
-     * @param fbuscada  Fecha a comparar (formato LocalDate)
-     * @param finicio   Fecha inicio del limite a buscar (formato LocalDate)
-     * @param ffin      Fecha fin del limite a buscar (formato LocalDate)
-     * @return  true si la fecha a comparar esta entre las otras dos fechas limites, false en caso contrario
+     *
+     * @param fbuscada Fecha a comparar (formato LocalDate)
+     * @param finicio  Fecha inicio del limite a buscar (formato LocalDate)
+     * @param ffin     Fecha fin del limite a buscar (formato LocalDate)
+     * @return true si la fecha a comparar esta entre las otras dos fechas limites, false en caso contrario
      */
     public static boolean fechaEntreDosFechas(LocalDate fbuscada, LocalDate finicio, LocalDate ffin) {
         if (fbuscada.compareTo(finicio) >= 0 && fbuscada.compareTo(ffin) <= 0) {
@@ -408,7 +409,45 @@ public class JYOCUtilsJavaDates {
         return false;
     }
 
+//  // USANDO LA LIBRERIA JODATIME
+//
+//
+//    /**
+//     * convierte un java.time.LocalDate en un org.joda.time.DateTime
+//     */
+//    public static DateTime localDatetoDateTime(LocalDate unLocalDate) {
+//        return new DateTime(unLocalDate.getYear(), unLocalDate.getMonthValue(), unLocalDate.getDayOfMonth(), 0, 0, 0, 0);
+//    }
+//
+//    /**
+//     * convierte un org.joda.time.DateTime en un java.time.LocalDate
+//     */
+//    public static LocalDate dateTimetoLocalDate(DateTime unDateTime) {
+//        return LocalDate.of(unDateTime.getYear(), unDateTime.getMonthOfYear(), unDateTime.getDayOfMonth());
+//    }
+//
+//    /**
+//     * @param unoInicio
+//     * @param unoFinal
+//     * @param dosInicio
+//     * @param dosFinal
+//     * @return
+//     */
+//    public static boolean seSolapan(LocalDate unoInicio, LocalDate unoFinal, LocalDate dosInicio, LocalDate dosFinal) {
+//        unoFinal = unoFinal.plusDays(1);
+//        dosFinal = dosFinal.plusDays(1);
+//        DateTime unoIni = new DateTime(unoInicio.getYear(), unoInicio.getMonthValue(), unoInicio.getDayOfMonth(), 0, 0, 0, 0);
+//        DateTime unoFin = new DateTime(unoFinal.getYear(), unoFinal.getMonthValue(), unoFinal.getDayOfMonth(), 0, 0, 0, 0);
+//        DateTime dosIni = new DateTime(dosInicio.getYear(), dosInicio.getMonthValue(), dosInicio.getDayOfMonth(), 0, 0, 0, 0);
+//        DateTime dosFin = new DateTime(dosFinal.getYear(), dosFinal.getMonthValue(), dosFinal.getDayOfMonth(), 0, 0, 0, 0);
+//        Interval inter1 = new Interval(unoIni, unoFin);
+//        Interval inter2 = new Interval(dosIni, dosFin);
+//        boolean solucion = inter1.overlaps(inter2);
+//        return solucion;
+//    }
+public static void main(String[] args) {
+    int x = 0;
 
-
+}
 
 }
