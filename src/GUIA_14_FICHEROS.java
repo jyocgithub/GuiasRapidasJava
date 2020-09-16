@@ -85,7 +85,7 @@ public class GUIA_14_FICHEROS {
         if (archivo.exists()) {
             BufferedReader br = null;
             try {
-                br = new BufferedReader(new FileReader("textos.txt"));
+                br = new BufferedReader(new FileReader(archivo));
 
                 String linea = br.readLine();
                 while (linea != null) {
@@ -318,3 +318,38 @@ class Avioneta {
     }
 
 }
+
+
+
+
+class Cliente {
+    private String nombre;
+    private String cif;
+}
+
+
+
+class Concepto{
+    private String descripcion;
+    private int importe;
+}
+
+
+class Factura{
+    private int idFactura;
+
+    // Cliente es una relacion de Agregacion con la clase Factura
+    // pues una factura esta compuesta de un cliente
+    // Pero el Cliente puede existir independientemente de que exista la factura
+    private Cliente cliente;
+    // Concepto es una relacion de Composicion con la clase Factura
+    // pues una factura esta compuesta de Conceptos
+    // Pero los Conceptos NO tiene sentido que existan si no existe la factura
+    private Concepto[] conceptos;
+
+}
+
+
+
+
+

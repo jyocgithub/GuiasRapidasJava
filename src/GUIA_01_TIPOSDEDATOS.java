@@ -57,7 +57,6 @@ public class GUIA_01_TIPOSDEDATOS {
         System.out.print("Mensaje que si acaba en un salto de linea \n");
 
 
-
         // =======================================
         // ENTRADA POR TECLADO
         // =======================================
@@ -87,6 +86,15 @@ public class GUIA_01_TIPOSDEDATOS {
         Random azar = new Random();
         int va1 = azar.nextInt(10);             // de 0 a 9
         int va2 = azar.nextInt(100-50+1) + 50;  // de 50 a 100
+
+        /*
+         * MAS ABAJO EXISTE UN MÉTODO DIRECTO PARA OBTENER UN NUMERO AL AZAR ENTRE DOS LIMITES
+         * ESTE ES SU USO;
+         */
+        int numeroalazart = enteroAlAzar(10,20);  // devuelve un numero entre 10 y 20 ambos inclusive
+
+
+
 
 
         // =======================================
@@ -161,4 +169,10 @@ public class GUIA_01_TIPOSDEDATOS {
 
 
     }
+
+    public static int enteroAlAzar(int minimo, int maximo) {
+        return (int)(Math.random() * (maximo - minimo + 1)  + minimo);
+    }
+
+
 }
