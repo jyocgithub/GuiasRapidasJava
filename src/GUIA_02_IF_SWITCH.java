@@ -6,6 +6,14 @@ public class GUIA_02_IF_SWITCH {
         int edad = 20;
 
 
+
+
+
+
+
+
+
+
         /*
          * IF    (SIMPLE)
          */
