@@ -123,5 +123,23 @@ public class GUIA_03_BUCLES {
             System.out.println(listaCopia[i]);
         }
 
+        // ===================================================================
+        // EJERCICIO DIFICIL: dado un numero entero, calcular su invertido ( de 4356 es 6534)
+        // ===================================================================
+        int cifra, inverso = 0;
+        int numero = 3671;
+        while(numero!=0){
+            cifra = numero%10;
+            inverso = (inverso * 10) + cifra;
+            numero/=10;
+        }
+        System.out.println(inverso);
+
+
+
+
+
+
+
     }
 }

@@ -13,7 +13,7 @@ public class GUIA_01_TIPOSDEDATOS {
 
         // =======================================
         // CONVERSIONES    INT - STRING
-        // =======================================
+        // =======================================ç
 
         /*
          * CONVERTIR un STRING en un INT
@@ -76,8 +76,22 @@ public class GUIA_01_TIPOSDEDATOS {
          * CON MATH.random()
          */
 
-        int a = (int) (Math.random () * 10);  // de 0 a 9
-        int b = (int) (Math.random () * (100-50+1)+50);  // entre 51 y 100
+        // ALEATORIOS ENTEROS
+        // ===================================================================
+        int MAX = 100;
+        int MIN  = 20;
+        //--------- Aleatorio entre 0 y max, sin incluir MAX
+        int i1 = (int) (Math.random()*(MAX));
+
+        //--------- Aleatorio entre 0 y max, incluyendo max
+        int i2 = (int) (Math.random()*(MAX+1));
+
+        //--------- Aleatorio entre MIN y MAX, sin incluir MAX
+        int s1 = (int) ((Math.random()*(MAX-MIN))+MIN);
+
+        //--------- Aleatorio entre MIN y MAX, incluyendo MAX
+        int s2 = (int) ((Math.random()*(MAX-MIN+1))+MIN);
+
 
         /*
          * CON RANDOM

@@ -70,22 +70,25 @@ public class GUIA_02_IF_SWITCH {
         }
 
 
-        /*
-         * EJEMPLOS .....
-         */
-
-
-        // si un numero es par....
+        // =======================================
+        // EJEMPLO : indica si un numero es par
+        // =======================================
         int n = 34;
         if ( n % 2 == 0) {
             System.out.println("Es par");
         }
 
-        // si un numero es impar....
+        // =======================================
+        // EJEMPLO : indica si un numero es impar
+        // =======================================
         int b = 34;
         if ( b % 2 != 0) {
             System.out.println("Es impar");
         }
+
+        // =======================================
+        // EJEMPLO : indica si un numero es multiplo de 7
+        // =======================================
 
         // si un numero es multiplo de 7 ....
         int z = 34;
@@ -93,7 +96,9 @@ public class GUIA_02_IF_SWITCH {
             System.out.println("Es multiplo de 7");
         }
 
-        // si un año es bisiesto ....
+        // =======================================
+        // EJEMPLO : ver si un año es bisiesto
+        // =======================================
         int anio  = 2010;
         // Un año es bisiesto si es divisible entre 4 y no es divisible entre 100,
         // o bien es divisible entre 100 y 400 a la vez.
