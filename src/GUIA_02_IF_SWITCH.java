@@ -5,15 +5,6 @@ public class GUIA_02_IF_SWITCH {
 
         int edad = 20;
 
-
-
-
-
-
-
-
-
-
         /*
          * IF    (SIMPLE)
          */
@@ -78,6 +69,39 @@ public class GUIA_02_IF_SWITCH {
                 System.out.print("> 3");
         }
 
+
+        /*
+         * EJEMPLOS .....
+         */
+
+
+        // si un numero es par....
+        int n = 34;
+        if ( n % 2 == 0) {
+            System.out.println("Es par");
+        }
+
+        // si un numero es impar....
+        int b = 34;
+        if ( b % 2 != 0) {
+            System.out.println("Es impar");
+        }
+
+        // si un numero es multiplo de 7 ....
+        int z = 34;
+        if ( z % 7 == 0) {
+            System.out.println("Es multiplo de 7");
+        }
+
+        // si un año es bisiesto ....
+        int anio  = 2010;
+        // Un año es bisiesto si es divisible entre 4 y no es divisible entre 100,
+        // o bien es divisible entre 100 y 400 a la vez.
+        if ((anio % 4 == 0 && anio % 100 != 0) || (anio % 100 == 0 && anio % 400 == 0)) {
+            System.out.println("El año " + anio + " es bisiesto");
+        } else {
+            System.out.println("El año " + anio + " no es bisiesto");
+        }
 
 
 
