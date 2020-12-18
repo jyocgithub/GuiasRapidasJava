@@ -232,6 +232,7 @@ public class GUIA_14_FICHEROS {
             escribir = new ObjectOutputStream(new FileOutputStream(nombreFichero, true));
 
             ArrayList<Avioneta> aviones = new ArrayList<>();
+
             // se supone que el arraylist anterior estaba ya creado y lleno de objetos Avioneta
 
             for (int i = 0; i < 5; i++) {
@@ -270,6 +271,7 @@ public class GUIA_14_FICHEROS {
 
             // creamos una lista nueva para rellenarla con lo que se lea
             ArrayList<Avioneta> nuevosaviones = new ArrayList<>();
+            nuevosaviones.add(new Avioneta());
 
             while(true){
                 Avioneta av = (Avioneta) leer.readObject();

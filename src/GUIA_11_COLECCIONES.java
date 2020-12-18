@@ -14,6 +14,9 @@ public class GUIA_11_COLECCIONES {
 
         lista.add("Pepe");             // AÑADIR A ARRAYLIST : la primera posicion es la 0.....
         lista.add("Ana");
+        lista.add("Paco");
+        lista.add("Luis");
+        lista.add("Anastasia");
 
         lista.add(3, "Ana");            // INSERTAR EN ARRAYLIST
 
@@ -53,7 +56,7 @@ public class GUIA_11_COLECCIONES {
         conj.add("Ana");
         conj.add("Luis");
         conj.add("Juan");
-        conj.add("Pepe");
+        conj.add("Lola");
         conj.add("Carlos");
 
         int tam2 = conj.size();             // TAMAÑO DE TREESET
@@ -76,7 +79,7 @@ public class GUIA_11_COLECCIONES {
         //   MAPAS           ( HASHMAP )         Otros conjuntos: TreeMap, HashTable
         // ==============================================================================
 
-        // MAPAS  - alamcenan DOS COLECCIONES; la clave de un elemento y el valor del elemento
+        // MAPAS  - almacenan DOS COLECCIONES; la clave de un elemento y el valor del elemento
         // ejemplo - guardo el nombre de un jugador y como clave su numero de dorsal
         TreeMap<Integer, String> mapa = new TreeMap<>();
 
@@ -144,9 +147,10 @@ public class GUIA_11_COLECCIONES {
         // ==============================================================================
         //   ENTRY.SET
         // ==============================================================================
-        HashMap<String , Avioneta> mapaaviones = new HashMap<>();
+        HashMap<String , Avion> mapaaviones = new HashMap<>();
+        mapaaviones.put("1",new Avion());
 
-        for ( Map.Entry<String , Avioneta>  cosa : mapaaviones.entrySet() ){
+        for ( Map.Entry<String , Avion>  cosa : mapaaviones.entrySet() ){
             System.out.println( " la clave es " + cosa.getKey());
             System.out.println( " el valor es  " + cosa.getValue().toString());
         }
@@ -178,4 +182,11 @@ class Avion {
         this.nummotores = nummotores;
     }
 
+    @Override
+    public String toString() {
+        return "Avion{" +
+                "nombre='" + nombre + '\'' +
+                ", nummotores=" + nummotores +
+                '}';
+    }
 }
