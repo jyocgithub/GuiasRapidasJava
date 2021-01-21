@@ -14,7 +14,7 @@ public class GUIA_01_TIPOSDEDATOS {
         // =======================================ç
 
         /*
-         * CONVERTIR un STRING en un INT
+         * ----------  CONVERTIR un STRING en un INT
          */
         String ss = "53";
         int num1 = Integer.parseInt( ss );
@@ -23,7 +23,7 @@ public class GUIA_01_TIPOSDEDATOS {
         // existen Double.parseDouble(), Short.parseShort(), etc...
 
         /*
-         * CONVERTIR un INT en un STRING
+         * ----------  CONVERTIR un INT en un STRING
          */
 
         // este es el modo "didacticamente apropiado"
@@ -71,7 +71,7 @@ public class GUIA_01_TIPOSDEDATOS {
         // =======================================
 
         /*
-         * CON MATH.random()
+         * ----------  CON MATH.random()
          */
 
         // ALEATORIOS ENTEROS
@@ -92,7 +92,7 @@ public class GUIA_01_TIPOSDEDATOS {
 
 
         /*
-         * CON RANDOM
+         * ----------  CON RANDOM
          */
 
         Random azar = new Random();

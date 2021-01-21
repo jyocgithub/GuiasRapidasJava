@@ -10,7 +10,7 @@ public class GUIA_06_STRINGS {
         // =======================================
 
         /*
-         * CONVERTIR un STRING en un INT
+         * -------------------- CONVERTIR un STRING en un INT
          */
         String ss = "53";
         int num1 = Integer.parseInt(ss);
@@ -19,7 +19,7 @@ public class GUIA_06_STRINGS {
         // existen Double.parseDouble(), Short.parseShort(), etc...
 
         /*
-         * CONVERTIR un INT en un STRING
+         * CONVERTIR un INT en un STRING ---------------------------------------------------
          */
 
         // este es el modo "didacticamente apropiado"
@@ -39,17 +39,17 @@ public class GUIA_06_STRINGS {
 
 
         /*
-         * TAMAÑO DE UNA CADENA
+         * TAMAÑO DE UNA CADENA ---------------------------------------------------
          */
         int tam = cadena.length();  // tam vale 22
 
         /*
-         * EXTRAER UN CHAR DE UNA CADENA
+         * EXTRAER UN CHAR DE UNA CADENA ---------------------------------------------------
          */
         char c = cadena.charAt(5);  // c valdría 'y'
 
         /*
-         * EXTRAER UN TROZO DE UNA CADENA
+         * EXTRAER UN TROZO DE UNA CADENA ---------------------------------------------------
          * Si tiene un solo parametro es desde dichas posicion hasta el final
          * Si tiene dos parámetros, el primero es INCLUIDO y el segundo es EXCLUIDO
          */
@@ -57,7 +57,7 @@ public class GUIA_06_STRINGS {
         String tt2 = cadena.substring(1, 5);  // tt2 vale "cott"
 
         /*
-         * COMPARAR CADENAS
+         * COMPARAR CADENAS ---------------------------------------------------
          */
         String cad1 = "Hola";
         String cad2 = "HOLA";
@@ -66,7 +66,7 @@ public class GUIA_06_STRINGS {
         }
 
         /*
-         * VER SI UNA CADENA CONTIENE ALGO
+         * VER SI UNA CADENA CONTIENE ALGO ---------------------------------------------------
          */
         if (cadena.contains("poten")) {  // en este caso es cierto
             // ...
@@ -74,7 +74,7 @@ public class GUIA_06_STRINGS {
 
 
         /*
-         * CONSEGUIR UNA CADENA CONVERTIDA A MAYUSCULAS o MINUSCULAS
+         * CONSEGUIR UNA CADENA CONVERTIDA A MAYUSCULAS o MINUSCULAS -------------------------------------
          */
         String cadenaMayus = cadena.toUpperCase();
         String cadenaMinus = cadena.toLowerCase();
@@ -83,7 +83,7 @@ public class GUIA_06_STRINGS {
 
 
         /*
-         * SABER EN QUE POSICION ESTA UNA SUBCADENA
+         * SABER EN QUE POSICION ESTA UNA SUBCADENA ---------------------------------------------------
          */
         int pos = cadena.indexOf("tty");
         // Indica la posicion en que la que se encuentra la cadena buscada
@@ -91,7 +91,7 @@ public class GUIA_06_STRINGS {
 
 
         /*
-         * CREAR UN ARRAY AL TROCEAR UNA CADENA POR UN CARACTER INDICADO
+         * CREAR UN ARRAY AL TROCEAR UNA CADENA POR UN CARACTER INDICADO ----------------------------------
          */
         String[] trozos = cadena.split(" ");
         // cuidado que lo que evalua realmente es una expresion regular, no se puede poner ahi cualquier cosa
@@ -103,7 +103,7 @@ public class GUIA_06_STRINGS {
 
 
         /*
-         * REEMPLAZA EN UNA CADENA UN ELEMENTO POR OTRO
+         * REEMPLAZA EN UNA CADENA UN ELEMENTO POR OTRO ---------------------------------------------------
          */
         String origen = "una frase que mas que frase es frasecilla";
         String nuevacadena = origen.replace("frase", "cosa");   // nueva vale "una cosa que mas que cosa es cosacilla"
@@ -112,7 +112,6 @@ public class GUIA_06_STRINGS {
         // Se devuelve una copia de cadena modificada.
         // Se reemplazan TODAS las apariciones de la cadena buscada en la original
 
-        /*
         /*
          * EJERCICIO: Extraer y mostrar uno a uno los chars de una cadena
          */

@@ -1,4 +1,4 @@
-package java_utilidades;
+package java_metodos_utilidades;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -42,7 +42,7 @@ import java.util.*;
  * @author Iñaki Martin
  * @version 2
  */
-public class JYOCUtilsJavaDates {
+public class JYOCUtilsJava_Dates {
 
     /**
      * hoyEnDate

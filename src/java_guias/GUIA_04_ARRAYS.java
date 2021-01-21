@@ -12,25 +12,25 @@ public class GUIA_04_ARRAYS {
         // =======================================
         
         /*
-         * CREAR UN ARRAY VACIO
+         * CREAR UN ARRAY VACIO ---------------------------------------------------
          */
         int[] unArray = new int[4];
 
         /*
-         * CREAR UN ARRAY CON CONTENIDO
+         * CREAR UN ARRAY CON CONTENIDO ---------------------------------------------------
          */
         String[] otroArray = {"Eva", "Ana", "Olga", "Luis"};
 
         /*
-         * OBTENER EL TAMAÑO DE UN ARRAY
+         * OBTENER EL TAMAÑO DE UN ARRAY ---------------------------------------------------
          */
         int tamano = unArray.length;
 
         /*
-         * PATRON MODELO PARA RECORRER UN ARRAY
+         * PATRON MODELO PARA RECORRER UN ARRAY ---------------------------------------------------
          */
         // En cada vuelta de bucle, aparece miArray[i]
-        // que representará cada uno de los elementos del array
+        // que representará (en cada vuelta) cada uno de los elementos del array
         // ¿Que hacer con el? Lo que se pida, en cada caso
 
 //        for (int i = 0; i < unArray.length; i++) {
@@ -40,7 +40,7 @@ public class GUIA_04_ARRAYS {
 
 
         /*
-         * CREAR UN ARRAY AL TROCEAR UNA CADENA
+         * CREAR UN ARRAY AL TROCEAR UNA CADENA ---------------------------------------------------
          */
         String   cadena = "Scotty, mas potencia!";
         String[] trozos = cadena.split(" ");
@@ -82,7 +82,7 @@ public class GUIA_04_ARRAYS {
         }
 
         /*
-         * Ordenar  por burbuja  (version más simple), cuando el array contiene int
+         * EJERCICIO: Ordenar  por burbuja  (version más simple), cuando el array contiene int
          */
         int[] datos = {4, 1, 8, 36, 0, 33, 11, 43};
         for (int i = 0; i < datos.length - 1; i++) {
@@ -96,7 +96,7 @@ public class GUIA_04_ARRAYS {
         }
 
         /*
-         * Ordenar por burbuja  (version más simple), cuando el array contiene String
+         * EJERCICIO: Ordenar por burbuja  (version más simple), cuando el array contiene String
          * (o de cualquier objeto)
          */
         String[] palabras = {"pera", "uva", "higo", "fresa"};
@@ -106,6 +106,23 @@ public class GUIA_04_ARRAYS {
                     String aux = palabras[j + 1];
                     palabras[j + 1] = palabras[j];
                     palabras[j] = aux;
+                }
+            }
+        }
+
+        /*
+         * EJERCICIO: Ordenar por burbuja  (version algo mas ajustada)
+         */
+        int[] datos2 = {4, 1, 8, 36, 0, 33, 11, 43};
+        boolean heCambiado = true;
+        for (int i = 0; i < datos2.length - 1 && heCambiado; i++) {
+            for (int j = i; j < datos2.length - 1; j++) {
+                heCambiado = false;
+                if (datos2[j] > datos2[j + 1]) {
+                    int aux = datos2[j + 1];
+                    datos2[j + 1] = datos2[j];
+                    datos2[j] = aux;
+                    heCambiado=true;
                 }
             }
         }

@@ -1,4 +1,4 @@
-package java_utilidades;
+package java_metodos_utilidades;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -25,14 +25,14 @@ import java.util.*;
  */
 
 /**
- * JYOCUtilsJavaFiles
+ * JYOCUtilsJava_Files
  * <p>
  * Utilidades para leer y escribir ficheros binarios y de texto en Java
  *
  * @author Iñaki Martin
  * @version 2
  */
-public class JYOCUtilsJavaFiles {
+public class JYOCUtilsJava_Files {
 
     /**
      * escribirTextoEnFichero

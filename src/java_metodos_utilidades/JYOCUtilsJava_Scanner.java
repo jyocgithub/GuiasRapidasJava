@@ -1,4 +1,4 @@
-package java_utilidades;
+package java_metodos_utilidades;
 
 import java.util.*;
 
@@ -24,7 +24,7 @@ import java.util.*;
  * @author Iñaki Martin
  * @version 2
  */
-public class JYOCUtilsJavaScanner {
+public class JYOCUtilsJava_Scanner {
 
     /**
      * leerInt Lee con scanner un numero int, precio envio de un mensaje a usuario
