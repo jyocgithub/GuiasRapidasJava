@@ -1,4 +1,4 @@
-
+package java_guias;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ class BBDDGestor {
     /**
      * insertarPelicula
      *
-     * @param miPelicula Pelicula que se quiere dar de alta en la bbdd
+     * @param miPelicula guias_java.Pelicula que se quiere dar de alta en la bbdd
      */
     public void insertarPelicula(Pelicula miPelicula) {
         conectar();
@@ -192,7 +192,7 @@ class BBDDGestor {
 
 
     /**
-     * public void modificarUnaPelicula(Pelicula miPelicula) {
+     * public void modificarUnaPelicula(guias_java.Pelicula miPelicula) {
      *
      * @param miPelicula
      */

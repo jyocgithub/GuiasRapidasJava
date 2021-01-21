@@ -1,3 +1,5 @@
+package java_guias;
+
 import java.util.Random;
 
 public class GUIA_04_ARRAYS {

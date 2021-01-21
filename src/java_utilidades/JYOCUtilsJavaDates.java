@@ -1,4 +1,4 @@
-package utilidades;
+package java_utilidades;
 
 import java.text.DateFormat;
 import java.text.ParseException;

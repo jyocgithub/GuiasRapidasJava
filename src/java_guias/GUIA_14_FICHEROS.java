@@ -1,3 +1,5 @@
+package java_guias;
+
 import java.util.*;
 import java.io.*;
 
@@ -233,7 +235,7 @@ public class GUIA_14_FICHEROS {
 
             ArrayList<Avioneta> aviones = new ArrayList<>();
 
-            // se supone que el arraylist anterior estaba ya creado y lleno de objetos Avioneta
+            // se supone que el arraylist anterior estaba ya creado y lleno de objetos guias_java.Avioneta
 
             for (int i = 0; i < 5; i++) {
                 escribir.writeObject( aviones.get(i) );
@@ -340,11 +342,11 @@ class Concepto{
 class Factura{
     private int idFactura;
 
-    // Cliente es una relacion de Agregacion con la clase Factura
+    // guias_java.Cliente es una relacion de Agregacion con la clase guias_java.Factura
     // pues una factura esta compuesta de un cliente
-    // Pero el Cliente puede existir independientemente de que exista la factura
+    // Pero el guias_java.Cliente puede existir independientemente de que exista la factura
     private Cliente cliente;
-    // Concepto es una relacion de Composicion con la clase Factura
+    // guias_java.Concepto es una relacion de Composicion con la clase guias_java.Factura
     // pues una factura esta compuesta de Conceptos
     // Pero los Conceptos NO tiene sentido que existan si no existe la factura
     private Concepto[] conceptos;

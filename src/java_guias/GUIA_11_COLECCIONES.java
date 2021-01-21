@@ -1,3 +1,5 @@
+package java_guias;
+
 import java.util.*;
 
 public class GUIA_11_COLECCIONES {
@@ -184,7 +186,7 @@ class Avion {
 
     @Override
     public String toString() {
-        return "Avion{" +
+        return "guias_java.Avion{" +
                 "nombre='" + nombre + '\'' +
                 ", nummotores=" + nummotores +
                 '}';

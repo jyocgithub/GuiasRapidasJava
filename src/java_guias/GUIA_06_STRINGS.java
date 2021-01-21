@@ -1,3 +1,5 @@
+package java_guias;
+
 public class GUIA_06_STRINGS {
 
 
