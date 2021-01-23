@@ -3,7 +3,7 @@ package java_guias;
 import java.util.Random;
 import java.util.Scanner;
 
-public class GUIA_01_TIPOSDEDATOS {
+public class JYOCJAVA_GUIA_01_TIPOSDEDATOS {
 
 
     public static void main(String[] args) {

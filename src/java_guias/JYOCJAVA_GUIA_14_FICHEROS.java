@@ -3,7 +3,7 @@ package java_guias;
 import java.util.*;
 import java.io.*;
 
-public class GUIA_14_FICHEROS {
+public class JYOCJAVA_GUIA_14_FICHEROS {
 
 
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package java_guias;
 
-public class GUIA_02_IF_SWITCH {
+public class JYOCJAVA_GUIA_02_IF_SWITCH {
 
 
     public static void main(String[] args) {

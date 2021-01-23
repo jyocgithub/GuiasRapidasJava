@@ -24,7 +24,7 @@ import java.util.*;
  * @author Iñaki Martin
  * @version 2
  */
-public class JYOCUtilsJava_Scanner {
+public class JYOCJAVAUtils_Scanner {
 
     /**
      * leerInt Lee con scanner un numero int, precio envio de un mensaje a usuario

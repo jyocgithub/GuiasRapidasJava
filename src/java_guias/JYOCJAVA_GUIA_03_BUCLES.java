@@ -1,6 +1,6 @@
 package java_guias;
 
-public class GUIA_03_BUCLES {
+public class JYOCJAVA_GUIA_03_BUCLES {
 
 
     public static void main(String[] args) {

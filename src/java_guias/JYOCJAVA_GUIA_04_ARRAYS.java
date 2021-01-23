@@ -2,7 +2,7 @@ package java_guias;
 
 import java.util.Random;
 
-public class GUIA_04_ARRAYS {
+public class JYOCJAVA_GUIA_04_ARRAYS {
 
 
     public static void main(String[] args) {

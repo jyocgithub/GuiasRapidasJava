@@ -2,7 +2,7 @@ package java_guias;
 
 import java.util.*;
 
-public class GUIA_11_COLECCIONES {
+public class JYOCJAVA_GUIA_11_COLECCIONES {
 
 
     public static void main(String[] args) {
@@ -18,7 +18,7 @@ public class GUIA_11_COLECCIONES {
         lista.add("Ana");
         lista.add("Paco");
         lista.add("Luis");
-        lista.add("Anastasia");
+        lista.add("Anastasia ");
 
         lista.add(3, "Ana");            // INSERTAR EN ARRAYLIST
 

@@ -32,7 +32,7 @@ import java.util.*;
  * @author Iñaki Martin
  * @version 2
  */
-public class JYOCUtilsJava_Files {
+public class JYOCJAVAUtils_Files {
 
     /**
      * escribirTextoEnFichero

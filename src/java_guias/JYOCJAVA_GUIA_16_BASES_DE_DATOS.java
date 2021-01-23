@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class GUIA_16_BASES_DE_DATOS {
+public class JYOCJAVA_GUIA_16_BASES_DE_DATOS {
     public static void main(String[] args) {
         BBDDGestor bd = new BBDDGestor();
         bd.conectar();

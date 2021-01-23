@@ -23,7 +23,7 @@ import java.io.*;
 
  */
 
-public class JYOCUtilsJava_Conversiones {
+public class JYOCJAVAUtils_Conversiones {
 
     /**
      * objetoToByteArray

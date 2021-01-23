@@ -1,6 +1,6 @@
 package java_guias;
 
-public class GUIA_06_STRINGS {
+public class JYOCJAVA_GUIA_06_STRINGS {
 
 
     public static void main(String[] args) {
@@ -85,7 +85,7 @@ public class GUIA_06_STRINGS {
         /*
          * SABER EN QUE POSICION ESTA UNA SUBCADENA ---------------------------------------------------
          */
-        int pos = cadena.indexOf("tty");
+        int pos = cadena.indexOf("com");
         // Indica la posicion en que la que se encuentra la cadena buscada
         // Devuelve -1 si no se encuentra la cadena buscada.
 

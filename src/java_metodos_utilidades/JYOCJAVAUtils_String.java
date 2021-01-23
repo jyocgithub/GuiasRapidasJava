@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 
  */
 
-public class JYOCUtilsJava_String {
+public class JYOCJAVAUtils_String {
 
 
     /**

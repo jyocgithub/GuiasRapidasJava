@@ -42,7 +42,7 @@ import java.util.*;
  * @author Iñaki Martin
  * @version 2
  */
-public class JYOCUtilsJava_Dates {
+public class JYOCJAVAUtils_Dates {
 
     /**
      * hoyEnDate
