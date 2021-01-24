@@ -1,4 +1,4 @@
-package java_guias;
+package jyoc_java_guias;
 
 import java.util.Random;
 

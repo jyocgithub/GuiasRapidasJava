@@ -1,4 +1,4 @@
-package java_guias;
+package jyoc_java_guias;
 
 public class JYOCJAVA_GUIA_06_STRINGS {
 
