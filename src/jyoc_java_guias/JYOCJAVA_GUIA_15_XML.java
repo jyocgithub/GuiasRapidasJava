@@ -50,13 +50,14 @@ public class JYOCJAVA_GUIA_15_XML {
 
 
     //  +-------------------------------------------------+
-    //  |   CREAR XML                                     |
+    //  |   CREAR NUEVO XML                                     |
     //  |                                                 |
     //  +-------------------------------------------------+
 
     Node nodo_personal, nodo_empleado, nodo_raiz, nodo_nombre, nodo_apellidos, nodo_nombre_texto, nodo_apellidos_texto;
     String ficheroXMLQueSeCrea = "PERSONAL.XML";
 
+    // CUIDADO....... ESTE METODO RECIBE UNA LISTA DE EMPLEADOS SUPUESTAMENTE YA CREADA Y CON EMMPLEADOS
     public void crearDocumentoDOMcondatosJava(ArrayList<Empleado> listaEmp) {
 
         Document miDocDom; //Objeto Document que almacena el DOM del XML seleccionado.
@@ -130,7 +131,7 @@ public class JYOCJAVA_GUIA_15_XML {
 
 
     //  +-------------------------------------------------+
-    //  |   CREAR XML                                     |
+    //  |   CREAR NUEVO XML                                     |
     //  |                                                 |
     //  +-------------------------------------------------+
 
