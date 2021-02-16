@@ -6,6 +6,30 @@ import java.util.regex.Pattern;
 
 public class JYOCJAVA_GUIA_23_EXPRESIONES_REGULARES {
 
+    public static String rellenarConEspacios(String cadenaoriginal, int tamano) {
+        // por simplicidad, no se controla que 'tamano' sea mayor
+        // que el length de 'cadenaoriginal'     (aunque debería hacerse  :-)
+        int cuantosBlancosDeboSumar = tamano-cadenaoriginal.length();
+        for (int i = 1; i <= cuantosBlancosDeboSumar; i++) {
+            cadenaoriginal += " ";
+        }
+        return cadenaoriginal;
+    }
+
+
+    public String rellenaConEspacios(String cadenaoriginal, int tamano) {
+        if (cadenaoriginal.length() >= tamano) {
+            return cadenaoriginal;
+        }
+        int cuantosBlancosDeboSumar = tamano-cadenaoriginal.length();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i <= cuantosBlancosDeboSumar; i++) {
+            sb.append(' ');
+        }
+        sb.append(cadenaoriginal);
+        return sb.toString();
+    }
+
 
     public static void main(String[] args) {
 
